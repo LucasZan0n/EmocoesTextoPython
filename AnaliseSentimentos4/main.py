@@ -1,18 +1,14 @@
 # Importando NLTK para PLN (Processamento de Linguagem Natural)
 import nltk
-nltk.download('punkt') # Tokenização de textos
-nltk.download('movie_reviews') # Reviews de filmes
 
-# import pandas as pd
-# from nltk import word_tokenize
-# from nltk.stem.snowball import SnowballStemmer
-# import requests
+nltk.download('punkt')  # Tokenização de textos
+nltk.download('movie_reviews')  # Reviews de filmes
 
 # Importar modulo LeXmo do pacote LeXmo
 from LeXmo import LeXmo
 
 # Texto que será classificado as emoções:
-t= """When I look into your eyes
+t = """When I look into your eyes
 I can see a love restrained
 But darlin' when I hold you
 Don't you know I feel the same?
@@ -68,7 +64,6 @@ Don't ya think that you need someone?
 Everybody needs somebody
 """
 
-emo=LeXmo.LeXmo(t)
-print(emo)
+emo = LeXmo.LeXmo(t)
 emo.pop('text', None)
 print(emo)
