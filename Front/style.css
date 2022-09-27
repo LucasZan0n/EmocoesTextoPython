@@ -9,6 +9,7 @@
 .letra {
     margin-left: auto;
     margin-right: auto;
+    margin-top: calc(50vh - 80px);
     font-family: 'Arial ', sans-serif;
     font-size: 15px;
     color: black;
