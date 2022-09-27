@@ -18,6 +18,13 @@ function Get(url){
     return request.responseText;          
 }
 
+function Post(){
+    var url = "http://localhost:5000/api/Usuario";
+    var data = Get(url);
+    var Usuario = JSON.parse(data);
+    console.log(Usuario);
+    criaLinha(Usuario);
+}
 
 function main(){
     var url = "http://localhost:5000/api/Usuario";

@@ -38,10 +38,9 @@ body {
 .dark-mode {
     background-color: #323232;
     color: white;
-    dig {
-        color: white;
-    }
+   
 }
+
 .light-mode {
     background-color: white;
     color: #323232;
