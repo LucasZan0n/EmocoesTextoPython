@@ -17,10 +17,7 @@ function Get(url){
     request.send();
     return request.responseText;          
 }
-function criaLinha(Usuario){
 
-
-}
 
 function main(){
     var url = "http://localhost:5000/api/Usuario";
