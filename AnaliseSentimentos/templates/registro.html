@@ -43,16 +43,24 @@
             <div class="col-p-2 mt-5 mb-3 mx-auto p-2">
                 <h2 class="text-center">Registrar</h2>
 
-                <form action="usuario.js" method="POST">
-                    <!--{{form.as_p}}-->
-                    <div class="form-group mt-4 text-center">Nome: {{registro.nome}}</div>
-                    <div class="form-group mt-4">Email: {{registro.email}}</div>
-                    <div class="form-group mt-4">Senha: {{registro.senha}}</div>
-                    <input type="submit" class="btn btn-success" value="Salvar">
+                <form action="/novoUsuario/" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+   
+                        <div class="form-group mt-4 text-center"><input type="text" placeholder="Nome"
+                                {{registro.nome}}></div>
+                                
+                        <div class="form-group mt-4"><input type="text" placeholder="Email"
+                                {{registro.email}}></div>
+
+                        <div class="form-group mt-4"><input type="text" placeholder="Senha"
+                                {{registro.senha}}></div>
+
+                        <input type="submit" class="btn btn-success" value="Salvar">
+                    </div>
+                </form>
             </div>
-            </form>
         </div>
-    </div>
 </body>
 
 </html>

@@ -1,11 +1,31 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from AnaliseSentimentos.models import Registro
 from AnaliseSentimentos.registro import RegistroForm
 
 # Create your views here.
+
+
 def home(request):
-    return render(request, 'index.html')
+    data = {}
+    data['db'] = Registro.objects.all()
+
+    return render(request, 'index.html', data)
+
 
 def registro(request):
     data = {}
     data['registro'] = RegistroForm()
     return render(request, 'registro.html', data)
+
+
+def novoUsuario(request):
+    form = RegistroForm(request.POST or None)
+    if form.is_valid():
+          form.save()
+          return redirect('home')
+
+
+def view(request, pk):
+    data = {}
+    data['db'] = Registro.objects.get(pk=pk)
+    return render(request, 'view.html', data)
