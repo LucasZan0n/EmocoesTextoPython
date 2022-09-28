@@ -5,28 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar</title>
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        
+
 </head>
 
-<body>
+<body class="bg-secondary">
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">TCC</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="registro">Meus Dados <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="registro">Minhas Músicas <span class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
 
     <div class="container">
-        
+
         <div class="row">
-            <div class="col-md-6">
-                <h2>Registrar</h2>
+            <div class="col-p-2 mt-5 mb-3 mx-auto p-2">
+                <h2 class="text-center">Registrar</h2>
 
                 <form action="usuario.js" method="POST">
-                    <div class="form-group">
-                        {{registro.as_p}}
-                    </div>
-                    <button type="submit" class="btn btn-primary">Registrar</button>
-                </form>
+                    <!--{{form.as_p}}-->
+                    <div class="form-group mt-4 text-center">Nome: {{registro.nome}}</div>
+                    <div class="form-group mt-4">Email: {{registro.email}}</div>
+                    <div class="form-group mt-4">Senha: {{registro.senha}}</div>
+                    <input type="submit" class="btn btn-success" value="Salvar">
             </div>
+            </form>
         </div>
+    </div>
 </body>
 
 </html>
