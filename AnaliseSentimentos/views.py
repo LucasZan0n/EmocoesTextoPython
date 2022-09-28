@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from AnaliseSentimentos.registro import RegistroForm
 
 # Create your views here.
 def home(request):
-    return HttpResponse(request, 'index.html')
+    return render(request, 'index.html')
 
-def form(request):
-    return render(request, 'registro.html')
+def registro(request):
+    data = {}
+    data['registro'] = RegistroForm()
+    return render(request, 'registro.html', data)

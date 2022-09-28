@@ -4,44 +4,51 @@
 <head>
     <title>Analise de Emoções</title>
     <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
-<div class="corpo">
+<body>
+    </div>
 
-    <body>
-        <link rel="stylesheet" href=style.css />
-        <script src="script.js"></script>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">TCC</a>
 
-        <body>
-            <link rel="stylesheet" href=style.css />
-            <script src="script.js"></script>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <nav class="appbar">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="registro">Meus Dados <span class="sr-only">(current)</span></a>
+                </li>
 
-                <a class="app" href="index.html">TCC</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="registro">Minhas Músicas <span class="sr-only">(current)</span></a>
+                </li>
 
-                <ul class="opcoes">
-                    <a href="registro.html">
-                        <li class="dados"> Meus Dados</li>
-                    </a>
-                    <li class="dados">Minhas músicas</li>
-                </ul>
-            </nav>
+            </ul>
+        </div>
+    </nav>
 
-        </body>
-</div>
+    <div class="container-fluid flex border border-dark p-2 mt-5 mb-3 mx-auto p-2 text-center">
+        <form action="registro.html" , method="post">
 
-<div class="formulario">
-    <form action="" , method="post">
-        <h1 class="dig" style="padding-top:calc(30vh - 80px)">Digite sua Letra </h1>
-        
-        <textarea id="letra" class="letra" rows="10" cols="50" required minlength="10"></textarea>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="textarea">Digite sua Letra</label>
+                <textarea class="form-control " id="textarea" required minlength="10" rows="5" m></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark mx-auto">Registrar</button>
 
-        <button type="submit" class="botao">Registrar</button>
+    </div>
     </form>
-</div>
 
-<!--
+
+    <!--
     <div>
         <button onclick="darkMode()">Darkmode</button>
         <button onclick="lightMode()">LightMode</button>
