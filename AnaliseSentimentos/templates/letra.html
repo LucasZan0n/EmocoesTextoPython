@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Analise de Emoções</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body img background="../static/fundo.jpg">
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-transparent
+        shadow-lg p-3 mb-5 border border-dark rounde ">
+
+        <a class="navbar-brand font-weight-bold text-monospace" href="/">TCC</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link font-weight-bold text-monospace" href="registro">Meus Dados <span
+                            class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link font-weight-bold text-monospace" href="letra">Minhas Músicas <span
+                            class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+        </div>
+
+
+        {% for dbs in db %}
+        <h6 class="nav-link font-weight-bold text-monospace text-white"> Bem Vindo {{dbs.nome}} =D <span
+                class="sr-only">(current)</span></a>
+        {% endfor %}
+
+    </nav>
+    <div class="container-fluid flex border border-dark
+    shadow-lg p-3 mb-5 bg-white rounded
+    p-2 mt-5 mb-3 mx-auto p-2 text-center bg-transparent">
+
+        <form action="registro.html" , method="post">
+
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="textarea" class="text-al p-2 mt-5 mb-3 mx-auto p-2 border-dark
+                    font-weight-bold text-monospace">Digite sua
+                    Letra</label>
+
+                <textarea class="form-control p-3 mb-2 bg-white border-dark  
+                text-white font-weight-bold text-monospace" id="textarea" required minlength="10" rows="10"
+                    placeholder="Essa é uma velha história de uma flor e um beija flor que conheceram o amor..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark p-2 mt-3 mb-3 mx-auto p-2
+                border-light font-weight-bold text-monospace">Salvar</button>
+
+    </div>
+    </form>
+
+
+</body>
+
+</html>

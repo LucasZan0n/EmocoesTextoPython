@@ -29,3 +29,9 @@ def view(request, pk):
     data = {}
     data['db'] = Registro.objects.get(pk=pk)
     return render(request, 'view.html', data)
+ 
+
+# def letra(request):
+#     data = {}
+#     data['login'] = LoginForm()
+#     return render(request, 'letra.html', data)

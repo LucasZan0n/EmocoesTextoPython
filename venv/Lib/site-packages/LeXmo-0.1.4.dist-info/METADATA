@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: LeXmo
+Version: 0.1.4
+Summary: LeXmo is a python package for emotion classification.
+Home-page: https://github.com/dinbav/LeXmo
+Author: Dina Bavli
+Author-email: din.bavli@gmail.com
+License: Attribution-NonCommercial 4.0 International
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Natural Language :: English
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.5
+Requires-Dist: pandas
+Requires-Dist: nltk
+Requires-Dist: requests
+
+# LeXmo
+
+

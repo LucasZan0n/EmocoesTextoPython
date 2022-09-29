@@ -21,8 +21,11 @@ from AnaliseSentimentos.views import home, registro, novoUsuario, view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
+
     path('registro/', registro, name='registro'),
     path('novoUsuario/', novoUsuario, name='novoUsuario'),
+
+    # path('letra/', letra, name='letra'),
     path('view//', view, name='view'),
 
 ]
