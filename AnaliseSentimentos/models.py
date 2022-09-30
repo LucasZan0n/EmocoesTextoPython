@@ -28,4 +28,4 @@ class Letra(models.Model):
     login = models.ForeignKey(Login, on_delete=models.PROTECT)
 
     def __str__(self):
-        return " ({})".format(self.login.registro.nome)
+        return " ({})".format(self.login)
