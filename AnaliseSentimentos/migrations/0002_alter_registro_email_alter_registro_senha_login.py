@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='registro',
             name='email',
-            field=models.EmailField(max_length=100, verbose_name='Email'),
+            field=models.CharField(max_length=100, verbose_name='Email'),
         ),
         migrations.AlterField(
             model_name='registro',
@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
             name='Login',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email', models.EmailField(max_length=100, verbose_name='Email')),
+                ('email', models.CharField(max_length=100, verbose_name='Email')),
                 ('senha', models.CharField(max_length=150)),
                 ('registro', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='AnaliseSentimentos.registro')),
             ],
