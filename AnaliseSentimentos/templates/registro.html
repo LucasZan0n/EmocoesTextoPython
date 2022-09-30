@@ -11,56 +11,37 @@
 
 </head>
 
-<body class="bg-secondary">
-    </div>
-
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">TCC</a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="registro">Meus Dados <span class="sr-only">(current)</span></a>
-                </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="registro">Minhas Músicas <span class="sr-only">(current)</span></a>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
-
+<body img background="../static/fundo.jpg">
 
     <div class="container">
+        {% block content %}
 
-        <div class="row">
-            <div class="col-p-2 mt-5 mb-3 mx-auto p-2">
-                <h2 class="text-center">Registrar</h2>
+        <div class="container-fluid flex border border-dark
+        shadow-lg p-3 bg-white rounded text-white 
+        p-2 mt-5 p-3 text-center bg-transparent">
+        
+            <div class="row">
+                <div class="col-p-2 mt-5 mb-3 mx-auto p-2">
+                    <h2 class="text-center text-white">Registrar</h2>
 
-                <form action="index.html" method="POST">
-                    {% csrf_token %}
-                    <div class="form-group">
-   
-                        <div class="form-group mt-4 text-center"><input type="text" placeholder="Nome"
-                                {{registro.nome}}></div>
-                                
-                        <div class="form-group mt-4">
-                                {{registro.email}}</div>
+                    <form action="/" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
 
-                        <div class="form-group mt-4"><input type="text" placeholder="Senha"
-                                {{registro.senha}}></div>
+                            {{form.as_p}}
+                        </div>
 
-                        <input type="submit" class="btn btn-success" value="Salvar">
-                    </div>
+                        <input type="submit" class="btn btn-dark" value="Salvar">
+                        <a role="button" href="/" class="btn btn-dark mr-5"> Voltar</a>
+
+                </div>
                 </form>
             </div>
         </div>
+    </div>
+    {% endblock %}
+
+    </div>
 </body>
 
 </html>
