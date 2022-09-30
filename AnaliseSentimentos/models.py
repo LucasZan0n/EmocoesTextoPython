@@ -19,4 +19,4 @@ class Login(models.Model):
      registro = models.ForeignKey(Registro, on_delete=models.PROTECT)
     
      def __str__(self):
-        return " {} ({})".format(self.nome, self.registro.nome)
+        return " ({})".format(self.registro.nome)
