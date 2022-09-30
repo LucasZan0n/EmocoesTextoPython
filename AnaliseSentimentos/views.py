@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from AnaliseSentimentos.models import Registro
+from AnaliseSentimentos.models import Registro, Login
 from AnaliseSentimentos.registro import RegistroForm
 
 # Create your views here.
