@@ -13,7 +13,7 @@ class Registro(models.Model):
 
 
 class Login(models.Model):
-    email = models.EmailField(max_length=100, verbose_name='Email')
+    email = models.CharField(max_length=100, verbose_name='Email')
     senha = models.CharField(max_length=150)
 
     registro = models.ForeignKey(Registro, on_delete=models.PROTECT)

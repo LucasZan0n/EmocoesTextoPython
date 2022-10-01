@@ -27,13 +27,28 @@ textarea {
     margin: 25px auto auto;
 }
 
-body {
+.fundo {
     color: white;
     font-size: 25px;
-    background-image: url('Fundo.jpg');
-    background-repeat: repeat;
+    background-image: url('../img/fundo3.jpg');
+    background-repeat: initial;
     background-position-x: center;
+    width: 100%;
+    height: 100%;
 
+}
+
+.fundoIn {
+    color: white;
+    font-size: 25px;
+    background-image: url('../img/fundo.jpg');
+    background-position-x: center;
+    width: 100%;
+    height: 100%;
+}
+
+#borda{
+    padding-top: 28px
 }
 
 /* .dark-mode {

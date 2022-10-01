@@ -7,18 +7,21 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
 </head>
 
-<body img background="../static/fundo.jpg">
+<body class="fundoIn">
 
 
     {% block content %}
 
     <div class="container-fluid flex border border-dark
     shadow-lg p-3 bg-white rounded text-white 
-    p-2 mt-5 p-3 text-center bg-transparent">
+    p-2 mt-5 p-3 text-center bg-transparent" id="borda">
 
-        <form action="/letra" , method="post">
+        <form action="/letra/" , method="post">
 
 
             <div class="form-group ">
@@ -26,15 +29,15 @@
                     font-weight-bold text-monospace ">Logue para continuar</label>
 
                 {% csrf_token %}
-              
-                    {{form.as_p}}
-         
+
+                {{form.as_p}}
+
             </div>
 
             <button type="submit" class="btn btn-dark text-center ml-3 mt-3 mb-3 block p-2
                 border-light font-weight-bold text-monospace">Logar</button>
 
-                <a role="button" href="registro" class="btn btn-dark ml-auto mt-3 mb-3 block p-2
+            <a role="button" href="registro" class="btn btn-dark ml-auto mt-3 mb-3 block p-2
                 border-light font-weight-bold text-monospace">Cadastrar</a>
     </div>
 

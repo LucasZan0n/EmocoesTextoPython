@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="/static/css/style.css">
+
 </head>
 
-<body img background="../static/fundo.jpg">
+<body class="fundo">
 
     <div class="container">
         {% block content %}
@@ -19,14 +21,16 @@
         <div class="container-fluid flex border border-dark
         shadow-lg p-3 bg-white rounded text-white 
         p-2 mt-5 p-3 text-center bg-transparent">
-        
+
             <div class="row">
                 <div class="col-p-2 mt-5 mb-3 mx-auto p-2">
                     <h2 class="text-center text-white">Registrar</h2>
 
                     <form action="/" method="POST">
-                        {% csrf_token %}
+
                         <div class="form-group">
+
+                            {% csrf_token %}
 
                             {{form.as_p}}
                         </div>
