@@ -23,6 +23,7 @@ urlpatterns = [
 
     path('', LoginCreate.as_view(), name='index'),
     path('registro/', RegistroCreate.as_view(), name='registro'),
+    
     path('letra/', LetraCreate.as_view(), name='letra'),
 
 ]

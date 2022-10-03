@@ -15,6 +15,7 @@ class Registro(models.Model):
 class Login(models.Model):
     email = models.CharField(max_length=100, verbose_name='Email')
     senha = models.CharField(max_length=150)
+    ativa = models.BooleanField(default=True)
 
     registro = models.ForeignKey(Registro, on_delete=models.PROTECT)
 
@@ -23,7 +24,9 @@ class Login(models.Model):
 
 
 class Letra(models.Model):
-    letra = models.TextField(max_length=150, verbose_name='Letra')
+    nomeM = models.CharField(max_length=150, verbose_name='Nome da Música')
+    letra = models.TextField(max_length=100000, verbose_name='Letra')
+    # sentimento = models.Exists()
 
     login = models.ForeignKey(Login, on_delete=models.PROTECT)
 

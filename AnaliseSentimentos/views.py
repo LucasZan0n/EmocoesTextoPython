@@ -2,6 +2,7 @@
 from django.urls import reverse_lazy
 from AnaliseSentimentos.models import Letra, Registro, Login
 from django.views.generic.edit import CreateView
+from django.views.generic.list import ListView
 
 # Create your views here.
 
@@ -25,9 +26,15 @@ class RegistroCreate(CreateView):
 
 class LetraCreate(CreateView):
     model = Letra
-    fields = ['letra', ]
+    fields = ['nomeM', 'letra', ]
     template_name: str = 'letra.html'
     success_url: reverse_lazy('minhasLetras')
+
+
+class LetraList(ListView):
+    model = Letra
+    template_name: str = 'minhasLetras.html'
+    queryset = Letra.objects.all()
 
 # def home(request):
 #     data = {}
