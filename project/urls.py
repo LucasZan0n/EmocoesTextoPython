@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from AnaliseSentimentos.views import LoginCreate, RegistroCreate, LetraCreate, LetraList
+from AnaliseSentimentos.views import LoginCreate, RegistroCreate, LetraCreate, LetraList, lista
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +25,9 @@ urlpatterns = [
     path('registro/', RegistroCreate.as_view(), name='registro'),
 
     path('letra/', LetraCreate.as_view(), name='letra'),
-    path('letrasL/', LetraCreate.as_view(), name='letras'),
+    path('letras/', LetraList.as_view(), name='minhasLetras'),
+    path('lista/', lista.as_view(), name='lista'),
+
 
 
 ]

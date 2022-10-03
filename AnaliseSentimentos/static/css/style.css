@@ -1,17 +1,24 @@
-#borda {
-    padding-top: 28px
-}
-
-#containerRegistro {
-    padding-top: 58px;
-    padding-bottom: 58px
-}
-
-#nomeM {
-    font-size: 17px;
-    font-weight: bold;
+#fundoLogin {
     color: white;
+    background-position-x: center;
+}
+
+#txtLogin {
+    padding-top: 4%;
+    padding-bottom: 2%;
+    font-size: 45px;
+    color: transparent;
     font-weight: bold;
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #CC0000;
+}
+
+#fundoRegistro {
+    color: white;
+    font-size: 16px;
+    background-repeat: no-repeat;
+    background-position-x: center;
 }
 
 #txtRegistro {
@@ -20,9 +27,8 @@
     color: transparent;
     font-weight: bold;
     font-weight: bold;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #CC0000;
 }
+
 
 #txtLetras {
     padding-bottom: 5px;
@@ -32,4 +38,18 @@
     font-weight: bold;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #CC0000;
+}
+
+
+#nomeM {
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    font-weight: bold;
+}
+
+#container {
+    padding-top: 58px;
+    padding-bottom: 58px;
+
 }

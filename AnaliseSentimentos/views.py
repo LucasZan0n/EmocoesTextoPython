@@ -10,7 +10,8 @@ from django.views.generic.list import ListView
 class LoginCreate(CreateView):
     model = Login
     fields = ['email',
-              'senha', ]
+              'senha',
+              ]
     template_name: str = 'index.html'
     success_url: reverse_lazy('letra')
 
@@ -35,6 +36,13 @@ class LetraList(ListView):
     model = Letra
     template_name: str = 'minhasLetras.html'
     queryset = Letra.objects.all().order_by('nomeM')
+
+
+class lista(ListView):
+    model = LetraList
+    template_name: str = 'lista.html'
+    queryset = Letra.objects.all().order_by('letra')
+
 
 # def home(request):
 #     data = {}

@@ -12,37 +12,37 @@
 
 </head>
 
-<body class="fundoIn" background="../static/img/appbar.jpg">
+<body class="fundoLogin" background="../static/img/appbar.jpg">
 
 
-    {% block content %}
+    <h4 for="textarea" id="txtLogin" class="text-center ">L͟o͟g͟i͟n͟</h4>
 
-    <div class="container-fluid flex border border-dark
-    shadow-lg p-3 bg-white rounded text-white 
-    p-2 mt-5 p-3 text-center bg-transparent" id="borda">
+    <div class="container" id="container">
 
-        <form action="/letra/" , method="post">
+        <div class=" container-fluid flex border border-dark shadow-lg p-3 rounded text-white p-2 mt-5 p-3
+        text-center bg-transparent" id="borda">
 
+            {% block content %}
 
-            <div class="form-group ">
-                <label for="textarea" class="text-al ml-5 mt-5 mb-5 p-3 border-dark
-                    font-weight-bold text-monospace ">L͟o͟g͟i͟n͟</label>
+            <form action="/letra/" , method="post">
 
-                {% csrf_token %}
+                <div class="form-group  p-2 mt-5 p-3 ">
 
-                {{form.as_p}}
+                    {% csrf_token %}
 
-            </div>
+                    {{form.as_p}}
 
-            <button type="submit" class="btn btn-dark text-center ml-3 mt-3 mb-3 block p-2
+                </div>
+
+                <button type="submit" class="btn btn-dark text-center ml-3 mt-3 mb-3 block p-2
                 border-light font-weight-bold text-monospace">Logar</button>
 
-            <a role="button" href="registro" class="btn btn-dark ml-auto mt-3 mb-3 block p-2
+                <a role="button" href="registro" class="btn btn-dark ml-auto mt-3 mb-3 block p-2
                 border-light font-weight-bold text-monospace">Cadastrar</a>
-    </div>
+        </div>
 
-    </form>
-    {% endblock %}
+        </form>
+        {% endblock %}
 
 </body>
 

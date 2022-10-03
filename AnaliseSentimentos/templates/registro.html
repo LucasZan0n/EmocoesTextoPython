@@ -17,8 +17,7 @@
 
     <h2 class="text-center" id="txtRegistro"> ͟R͟e͟g͟i͟s͟t͟r͟a͟r͟</h2>
 
-    <div class="container" id="containerRegistro">
-        {% block content %}
+    <div class="container" id="container">
 
         <div class="container-fluid flex border border-dark
         shadow-lg p-3 rounded text-white 
@@ -27,6 +26,9 @@
 
             <div class="row">
                 <div class="col-p-2 mt-5 mb-3 mx-auto p-2">
+
+                    {% block content %}
+
                     <form action="/" method="POST">
 
                         <div class="form-group">

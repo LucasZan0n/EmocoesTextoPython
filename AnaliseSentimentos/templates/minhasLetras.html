@@ -43,44 +43,39 @@
 
     </nav>
 
-    <h2 class="text-center" id="txtLetras">D͟i͟g͟i͟t͟e͟ ͟s͟u͟a͟ ͟L͟e͟t͟r͟a͟ ͟</h2>
+    <h2 class="text-center" id="txtLetras">S͟u͟a͟s͟ ͟L͟e͟t͟r͟a͟s͟ </h2>
 
     <div class="container" id="container">
 
 
         <div class="container-fluid flex border border-dark
-    shadow-lg p-3 mb-5 bg-white rounded
-    p-2 mt-3 mb-3 mx-auto p-2 text-center bg-transparent" >
+    shadow-lg p-3 mb-5 bg-white rounded bg
+    p-2 mt-3 mb-3 mx-auto p-2 text-center bg-transparent">
 
             {% block content %}
 
-            <form action="/letras/" , method="">
 
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action bg-dark text-white" href="/lista/">Item 1</a>
+                <a class="list-group-item list-group-item-action bg-dark text-white" href="#list-item-2">Item 2</a>
+                <a class="list-group-item list-group-item-action bg-dark text-white" href="#list-item-3">Item 3</a>
+                <a class="list-group-item list-group-item-action bg-dark text-white" href="#list-item-4">Item 4</a>
 
-                <div class="form-group">
+                {% endblock %}
 
-                    <h4 class="text-monospace" id="nomeM">Nome da Musica</h4>
-
-                    <div>
-                        {% csrf_token %}
-                        {{form.as_p}}
-
-                        <div>
-                            <button type="submit" class="btn btn-dark text-center ml-3 mt-3 mb-3 block p-2
-                        border-light font-weight-bold text-monospace">Enviar</button>
-                        </div>
-
-
-
-                    </div>
-
+                <div>
 
                 </div>
-            </form>
+
+                </form>
+
+            </div>
         </div>
-        {% endblock %}
 
-
+        <div>
+            <a role="button" href="/letra/" id="botao" class="btn btn-dark text-center ml-3 mt-3 mb-3 block p-2
+        border-light font-weight-bold text-monospace">Voltar</a>
+        </div>
 </body>
 
 </html>
