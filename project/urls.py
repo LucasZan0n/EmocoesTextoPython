@@ -16,14 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from AnaliseSentimentos.views import LetraCreate, LoginCreate, RegistroCreate
+from AnaliseSentimentos.views import LoginCreate, RegistroCreate, LetraCreate, LetraList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', LoginCreate.as_view(), name='index'),
     path('registro/', RegistroCreate.as_view(), name='registro'),
-    
+
     path('letra/', LetraCreate.as_view(), name='letra'),
+    path('letrasL/', LetraCreate.as_view(), name='letras'),
+
 
 ]

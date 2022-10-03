@@ -15,52 +15,59 @@
     font-weight: bold;
 }
 
-textarea {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: auto;
-}
-
 .botao {
     display: block;
     margin: 25px auto auto;
 }
 
-.fundo {
+.fundoRegistro {
     color: white;
-    font-size: 25px;
-    background-image: url('../img/fundo3.jpg');
+    font-size: 16px;
     background-repeat: initial;
     background-position-x: center;
-    width: 100%;
-    height: 100%;
-
 }
 
 .fundoIn {
     color: white;
-    font-size: 25px;
-    background-image: url('../img/fundo.jpg');
     background-position-x: center;
-    width: 100%;
-    height: 100%;
 }
 
-#borda{
+#borda {
     padding-top: 28px
 }
 
-/* .dark-mode {
-    background-color: #323232;
-    color: white;
-
+#containerRegistro {
+    padding-top: 58px;
+    padding-bottom: 58px
 }
 
-.light-mode {
-    background-color: white;
-    color: #323232;
-} */
+#nomeM {
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    font-weight: bold;
+}
+
+#txtRegistro {
+    padding-top: 4%;
+    font-size: 45px;
+    color: transparent;
+    font-weight: bold;
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #CC0000;
+}
+
+#txtLetras {
+    padding-bottom: 5px;
+    font-size: 35px;
+    color: transparent;
+    font-weight: bold;
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #CC0000;
+}
+
 
 .corpo {
     padding: 0;

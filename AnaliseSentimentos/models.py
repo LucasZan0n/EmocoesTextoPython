@@ -1,3 +1,5 @@
+from asyncio.windows_events import NULL
+from logging import PlaceHolder
 from django.db import models
 
 # Create your models here.
@@ -24,8 +26,8 @@ class Login(models.Model):
 
 
 class Letra(models.Model):
-    nomeM = models.CharField(max_length=150, verbose_name='Nome da Música')
-    letra = models.TextField(max_length=100000, verbose_name='Letra')
+    nomeM = models.CharField(max_length=150, verbose_name='',  blank=True)
+    letra = models.TextField(max_length=100000, verbose_name='')
     # sentimento = models.Exists()
 
     login = models.ForeignKey(Login, on_delete=models.PROTECT)

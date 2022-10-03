@@ -34,7 +34,7 @@ class LetraCreate(CreateView):
 class LetraList(ListView):
     model = Letra
     template_name: str = 'minhasLetras.html'
-    queryset = Letra.objects.all()
+    queryset = Letra.objects.all().order_by('nomeM')
 
 # def home(request):
 #     data = {}
