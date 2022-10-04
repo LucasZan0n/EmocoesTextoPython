@@ -1,5 +1,5 @@
 # from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
+
 from AnaliseSentimentos.models import Letra, Registro, Login
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
@@ -13,7 +13,6 @@ class LoginCreate(CreateView):
               'senha',
               ]
     template_name: str = 'index.html'
-    success_url: reverse_lazy('letra')
 
 
 class RegistroCreate(CreateView):
@@ -22,14 +21,12 @@ class RegistroCreate(CreateView):
               'email',
               'senha', ]
     template_name: str = 'registro.html'
-    success_url: reverse_lazy('index')
 
 
 class LetraCreate(CreateView):
     model = Letra
     fields = ['nomeM', 'letra', ]
     template_name: str = 'letra.html'
-    success_url: reverse_lazy('minhasLetras')
 
 
 class LetraList(ListView):
@@ -42,7 +39,6 @@ class lista(ListView):
     model = LetraList
     template_name: str = 'lista.html'
     queryset = Letra.objects.all().order_by('letra')
-
 
 # def home(request):
 #     data = {}

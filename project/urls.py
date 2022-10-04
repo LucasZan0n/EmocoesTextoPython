@@ -28,6 +28,4 @@ urlpatterns = [
     path('letras/', LetraList.as_view(), name='minhasLetras'),
     path('lista/', lista.as_view(), name='lista'),
 
-
-
 ]

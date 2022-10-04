@@ -8,8 +8,9 @@
 
 <link rel="stylesheet" href="/static/css/style.css" />
 
+{% load static %}
 
-<body img background="../static/img/fundo.jpg">
+<body background="../static/img/fundo.jpg">
 
    <nav class="navbar navbar-expand-sm navbar navbar-dark bg-transparent
         shadow-lg p-3 mb-4 border border-dark rounde ">
@@ -29,7 +30,7 @@
             </li>
 
             <li class="nav-item active">
-               <a class="nav-link font-weight-bold text-monospace" href="/letra">Minhas Músicas <span
+               <a class="nav-link font-weight-bold text-monospace" href="/letras">Minhas Músicas <span
                      class="sr-only">(current)</span></a>
             </li>
 
@@ -42,8 +43,13 @@
 
    </body>
 
+            {% for letra in object_list %}
 
-   <div class="container" id="container">
+   <div class="container text-white" id="container">
+
+   {{letra.letra}}
+                   {% endfor %}
+
       <a role="button" href="/letras/" class="btn btn-dark mr-5">Voltar</a>
    </div>
 </body>

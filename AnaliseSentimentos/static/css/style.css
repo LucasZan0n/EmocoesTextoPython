@@ -16,8 +16,6 @@
 
 #fundoRegistro {
     color: white;
-    font-size: 16px;
-    background-repeat: no-repeat;
     background-position-x: center;
 }
 
@@ -25,8 +23,11 @@
     padding-top: 4%;
     font-size: 45px;
     color: transparent;
+    color: transparent;
     font-weight: bold;
     font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #CC0000;
 }
 
 

@@ -10,10 +10,10 @@
 
     <link rel="stylesheet" href="/static/css/style.css">
 
-
+    {% load static %}
 </head>
 
-<body img background="../static/img/fundo.jpg">
+<body background="../static/img/fundo.jpg">
 
     <nav class="navbar navbar-expand-sm navbar navbar-dark bg-transparent
         shadow-lg p-3 mb-4 border border-dark rounde ">
@@ -33,7 +33,7 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link font-weight-bold text-monospace" href="/letra">Minhas Músicas <span
+                    <a class="nav-link font-weight-bold text-monospace" href="/letras">Minhas Músicas <span
                             class="sr-only">(current)</span></a>
                 </li>
 
@@ -50,11 +50,11 @@
 
         <div class="container-fluid flex border border-dark
     shadow-lg p-3 mb-5 bg-white rounded
-    p-2 mt-3 mb-3 mx-auto p-2 text-center bg-transparent" >
+    p-2 mt-3 mb-3 mx-auto p-2 text-center bg-transparent">
 
             {% block content %}
 
-            <form action="/letras/" , method="">
+            <form method="post">
 
 
                 <div class="form-group">
@@ -63,8 +63,18 @@
 
                     <div>
                         {% csrf_token %}
-                        {{form.as_p}}
 
+                        {{form.as_p}}
+                        {% for letra in object_list %}
+
+                        <div >
+                            <h1>
+                                {{letra}}</h1>
+                        </div>
+
+                        {% endfor %}
+
+                        
                         <div>
                             <button type="submit" class="btn btn-dark text-center ml-3 mt-3 mb-3 block p-2
                         border-light font-weight-bold text-monospace">Enviar</button>

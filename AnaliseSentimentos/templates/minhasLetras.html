@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+    {% load static %}
 <head>
     <title>Analise de Emoções</title>
     <meta charset="utf-8">
@@ -13,7 +14,7 @@
 
 </head>
 
-<body img background="../static/img/fundo.jpg">
+<body background="../static/img/fundo.jpg">
 
     <nav class="navbar navbar-expand-sm navbar navbar-dark bg-transparent
         shadow-lg p-3 mb-4 border border-dark rounde ">
@@ -33,7 +34,7 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link font-weight-bold text-monospace" href="/letra">Minhas Músicas <span
+                    <a class="nav-link font-weight-bold text-monospace" href="/letras">Minhas Músicas <span
                             class="sr-only">(current)</span></a>
                 </li>
 
@@ -52,24 +53,14 @@
     shadow-lg p-3 mb-5 bg-white rounded bg
     p-2 mt-3 mb-3 mx-auto p-2 text-center bg-transparent">
 
-            {% block content %}
-
-
+     {% for letra in object_list %}
             <div class="list-group">
-                <a class="list-group-item list-group-item-action bg-dark text-white" href="/lista/">Item 1</a>
-                <a class="list-group-item list-group-item-action bg-dark text-white" href="#list-item-2">Item 2</a>
-                <a class="list-group-item list-group-item-action bg-dark text-white" href="#list-item-3">Item 3</a>
-                <a class="list-group-item list-group-item-action bg-dark text-white" href="#list-item-4">Item 4</a>
-
-                {% endblock %}
-
-                <div>
-
-                </div>
-
-                </form>
+       
+                <a class="list-group-item list-group-item-action bg-dark text-white" href="/lista/">{{letra.nomeM}}</a>
 
             </div>
+            {% endfor %}
+
         </div>
 
         <div>
