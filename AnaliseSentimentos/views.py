@@ -3,6 +3,7 @@
 from AnaliseSentimentos.models import Letra, Registro, Login
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
+from LeXmo import LeXmo
 
 # Create your views here.
 
@@ -38,7 +39,8 @@ class LetraList(ListView):
 class lista(ListView):
     model = LetraList
     template_name: str = 'lista.html'
-    queryset = Letra.objects.all().order_by('letra')
+    queryset = Letra.objects.order_by('letra')
+    sentimento = property('letra')
 
 # def home(request):
 #     data = {}

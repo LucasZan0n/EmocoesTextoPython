@@ -1,13 +1,15 @@
 from django.urls import reverse
 from django.db import models
-from LeXmo import LeXmo
+from AnaliseSentimentos import LeXmo
 
 import nltk
 
 nltk.download('punkt')  # Tokenização de textos
 nltk.download('movie_reviews')  # Reviews de filmes
 
+
 # Create your models here.
+
 
 class Registro(models.Model):
     nome = models.CharField(max_length=150,)
@@ -38,7 +40,9 @@ class Login(models.Model):
 class Letra(models.Model):
     nomeM = models.CharField(max_length=150, verbose_name='')
     letra = models.TextField(max_length=10000, verbose_name='', unique=True)
-    # sentimento = models.Exists()
+    l = property(letra)
+    sent = LeXmo.LeXmo(l)
+    sent.pop('text', None)
 
     login = models.ForeignKey(
         Login, on_delete=models.PROTECT, null=True, blank=True)
@@ -48,9 +52,3 @@ class Letra(models.Model):
 
     def get_absolute_url(self):
         return reverse('minhasLetras')
-
-    def sentimento():
-        emo = LeXmo(Letra.letra)
-        emo.pop('text', None)
-
-        return print(emo)
