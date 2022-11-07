@@ -1,12 +1,15 @@
 # from django.shortcuts import render, redirect
+import nltk
+nltk.download('punkt')  # Tokenização de textos
+from nltk.stem.snowball import SnowballStemmer
 
 from AnaliseSentimentos.models import Letra, Registro, Login
 from django.views.generic.edit import CreateView
-from django.views.generic.list import ListView
+from django.views.generic.list import ListView 
+from django.shortcuts import redirect, render
 from LeXmo import LeXmo
 
 # Create your views here.
-
 
 class LoginCreate(CreateView):
     model = Login
@@ -26,8 +29,23 @@ class RegistroCreate(CreateView):
 
 class LetraCreate(CreateView):
     model = Letra
-    fields = ['nomeM', 'letra', ]
+    fields = ['nomeM', 'letra',]
     template_name: str = 'letra.html'
+
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+
+        if self.request.method == "POST":
+            letra = self.request.POST['letra']
+        
+            emo = LeXmo.LeXmo(letra)
+            emo.pop('text', None)
+            instance.sentimento = emo
+
+            instance.save()
+            return redirect('/letras/')
+
+    
 
 
 class LetraList(ListView):

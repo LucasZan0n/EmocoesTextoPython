@@ -1,11 +1,5 @@
 from django.urls import reverse
 from django.db import models
-from AnaliseSentimentos import LeXmo
-
-import nltk
-
-nltk.download('punkt')  # Tokenização de textos
-nltk.download('movie_reviews')  # Reviews de filmes
 
 
 # Create your models here.
@@ -40,9 +34,8 @@ class Login(models.Model):
 class Letra(models.Model):
     nomeM = models.CharField(max_length=150, verbose_name='')
     letra = models.TextField(max_length=10000, verbose_name='', unique=True)
-    l = property(letra)
-    sent = LeXmo.LeXmo(l)
-    sent.pop('text', None)
+    sentimento = models.TextField(max_length=100000, verbose_name='', unique=True)
+ 
 
     login = models.ForeignKey(
         Login, on_delete=models.PROTECT, null=True, blank=True)
