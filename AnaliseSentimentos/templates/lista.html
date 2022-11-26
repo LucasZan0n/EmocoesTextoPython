@@ -50,32 +50,37 @@
 
       <div class="container text-white" id="container">
 
-    <div class="container-fluid flex border border-dark text-danger 
-    shadow-lg p-3 mb-5 bg-white rounded
-    p-2 mt-3 mb-3 mx-auto p-2 text-center bg-transparent">
+    <div class="container-fluid flex border border-dark zz
+    shadow-lg p-3 mb-5 bg-secondary rounded
+    p-2 mt-3 mb-3 mx-auto p-2 text-center">
 
 
     {{letra.nomeM}}<br><br>
 
-   </div>
-
-   <div class="container-fluid flex border border-dark text-danger 
-    shadow-lg p-3 mb-5 bg-white rounded
-    p-2 mt-3 mb-3 mx-auto p-2 text-center bg-transparent">
+    <div class="container-fluid flex border border-dark zz
+    shadow-lg p-3 mb-5 bg-secondary rounded
+    p-2 mt-3 mb-3 mx-auto p-2 text-center">
 
    {{letra.letra}}<br><br>
 
  </div>
-      <div class="container-fluid flex border border-dark text-black 
-    shadow-lg p-3 mb-5 rounded
-    p-2 mt-3 mb-3 mx-auto p-2 text-center bg-gradient-success">
+
+   <h6>  Sentimento gerado:</h1>   
+    <div class="container-fluid flex border border-dark zz
+    shadow-lg p-3 mb-5 bg-secondary rounded
+    p-2 mt-3 mb-3 mx-auto p-2 text-center">
+
 
    {{letra.sentimento}}<br><br>
     </div>
+    </div>
                    {% endfor %}
 
-      <a role="button" href="/letras/" class="btn btn-dark mr-5">Voltar</a>
-   </div>
+     <div>
+            <a role="button" href="/letra/" id="botao" class="btn btn-dark text-center ml-3 mt-3 mb-3 block p-2
+        border-light font-weight-bold text-monospace">Voltar</a>
+        </div>
+
 </body>
 
 </html>

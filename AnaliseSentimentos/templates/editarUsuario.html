@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+ {% load static %}
+</head>
+
+<body class="fundoRegistro" background="../static/img/fundo3.jpg">
+
+    <h2 class="text-center" id="txtRegistro"> Editar Usuário</h2>
+
+    <div class="container" id="container">
+
+        <div class="container-fluid flex border border-dark
+        shadow-lg p-3 rounded text-white 
+        p-2 mt-3 p-3 text-center ">
+
+
+            <div class="row">
+                <div class="col-p-2 mt-5 mb-3 mx-auto p-2">
+
+                    {% block content %}
+
+                    <form action="" method="POST">
+
+                        <div class="form-group">
+
+                            {% csrf_token %}
+
+                            {{form.as_p}}
+                        </div>
+
+                        <input type="submit" class="btn btn-dark" value="Salvar">
+                        <a role="button" href="/" class="btn btn-dark mr-5"> Voltar</a>
+
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    </div>
+</body>
+
+</html>

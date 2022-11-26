@@ -4,12 +4,12 @@ nltk.download('punkt')  # Tokenização de textos
 from nltk.stem.snowball import SnowballStemmer
 
 from AnaliseSentimentos.models import Letra, Registro, Login
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView 
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect
 from LeXmo import LeXmo
 
-# Create your views here.
+# Telas de Visualização
 
 class LoginCreate(CreateView):
     model = Login
@@ -19,6 +19,7 @@ class LoginCreate(CreateView):
     template_name: str = 'index.html'
 
 
+# ========================================
 class RegistroCreate(CreateView):
     model = Registro
     fields = ['nome',
@@ -26,6 +27,8 @@ class RegistroCreate(CreateView):
               'senha', ]
     template_name: str = 'registro.html'
 
+
+# ========================================
 
 class LetraCreate(CreateView):
     model = Letra
@@ -46,7 +49,7 @@ class LetraCreate(CreateView):
             return redirect('/letras/')
 
     
-
+# ========================================
 
 class LetraList(ListView):
     model = Letra
@@ -54,39 +57,49 @@ class LetraList(ListView):
     queryset = Letra.objects.all().order_by('nomeM')
 
 
+# ========================================
+
 class lista(ListView):
     model = LetraList
     template_name: str = 'lista.html'
     queryset = Letra.objects.order_by('letra')
     sentimento = property('letra')
 
-# def home(request):
-#     data = {}
-#     data['db'] = Registro.objects.all()
 
-#     return render(request, 'index.html', data)
+# ========================================
 
-
-# def registro(request):
-#     data = {}
-#     data['registro'] = RegistroForm()
-#     return render(request, 'registro.html', data)
+class AtualizarUsuario(UpdateView):
+    model = Registro
+    fields = ['nome',
+              'email',
+              'senha', ]
+    template_name: str = 'editarUsuario.html'
 
 
-# def novoUsuario(request):
-#     form = RegistroForm(request.POST or None)
-#     if form.is_valid():
-#           form.save()
-#           return redirect('home')
+# ========================================
+
+class AtualizarLetra(UpdateView):
+    model = Letra
+    fields = ['nomeM', 'letra',]
+    template_name: str = 'minhasLetras.html'
+
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+
+        if self.request.method == "POST":
+            letra = self.request.POST['letra']
+        
+            emo = LeXmo.LeXmo(letra)
+            emo.pop('text', None)
+            instance.sentimento = emo
+
+            instance.save()
+            return redirect('/letras/')
 
 
-# def view(request, pk):
-#     data = {}
-#     data['db'] = Registro.objects.get(pk=pk)
-#     return render(request, 'view.html', data)
+# ========================================
 
-
-# def letra(request):
-#     data = {}
-#     data['login'] = LoginForm()
-#     return render(request, 'letra.html', data)
+class DeletarLetra(DeleteView):
+    model = Letra
+    template_name = 'deletarLetra.html'
+    success_url = '/letras/'

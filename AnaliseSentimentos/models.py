@@ -2,8 +2,7 @@ from django.urls import reverse
 from django.db import models
 
 
-# Create your models here.
-
+# CRUD feito com inputs do próprio Django usando a classe MODEL
 
 class Registro(models.Model):
     nome = models.CharField(max_length=150,)

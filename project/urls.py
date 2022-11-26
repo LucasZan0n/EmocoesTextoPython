@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from AnaliseSentimentos.views import LoginCreate, RegistroCreate, LetraCreate, LetraList, lista
+from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, LoginCreate, RegistroCreate, LetraCreate, LetraList, lista
+
+# Definindo as rotas dentro da classe URLS
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +29,11 @@ urlpatterns = [
     path('letra/', LetraCreate.as_view(), name='letra'),
     path('letras/', LetraList.as_view(), name='minhasLetras'),
     path('lista/', lista.as_view(), name='lista'),
+
+    path('editar/registro/<int:pk>', AtualizarUsuario.as_view(), name='registro'),
+    path('editar/registro/<int:pk>', AtualizarLetra.as_view(), name='letra'),
+
+    path('excluir/registro/<int:pk>', DeletarLetra.as_view(), name='letra'),
+
 
 ]
