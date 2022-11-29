@@ -16,13 +16,15 @@
 
 <body class="fundoRegistro" background="/static/img/fundo3.jpg">
 
-<nav class="navbar navbar-expand-sm navbar navbar-dark bg-transparent
+
+    <nav class="navbar navbar-expand-sm navbar navbar-dark bg-transparent
         shadow-lg p-3 mb-4 border border-dark rounde ">
 
         <a class="navbar-brand font-weight-bold text-monospace" href="/letra">TCC</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -37,11 +39,24 @@
                     <a class="nav-link font-weight-bold text-monospace" href="/letras">Minhas Músicas <span
                             class="sr-only">(current)</span></a>
                 </li>
+                
 
+
+            </ul>
+
+            <ul>
+                <li class="nav-item active">
+                
+                 <a role="button" href="{% url 'logout' %}" id="botao" class="text-center ml-3 mt-3 mb-3 p-2 text-danger
+            border-light font-weight-bold text-monospace align-left ">Sair<span
+                            class="sr-only">(current)</span></a>
+
+                </li>
+       
             </ul>
         </div>
 
-
+            
     </nav>
     <h2 class="text-center" id="txtRegistro"> D͟͟͟e͟͟͟l͟͟͟e͟͟͟t͟͟͟a͟͟͟r͟͟͟ ͟͟͟U͟s͟u͟á͟r͟i͟o͟</h2>
 

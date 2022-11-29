@@ -17,11 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
-<<<<<<< HEAD
+
 from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, RegistroCreate, LetraCreate, LetraList, lista
-=======
-from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, LoginCreate, RegistroCreate, LetraCreate, LetraList, lista
->>>>>>> 74926ba631c932fc6d9304097de14a82b4d6726d
+
+from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, RegistroCreate, LetraCreate, LetraList, lista
 
 # Definindo as rotas dentro da classe URLS
 
@@ -30,10 +29,13 @@ urlpatterns = [
 
     path('', auth_views.LoginView.as_view(
         template_name='index.html'), name='login'),
-
+    
+    path('logout/', auth_views.LogoutView.as_view(
+        template_name='index.html'), name='logout'),
+    
     path('registro/', RegistroCreate.as_view(), name='registro'),
 
-    path('letra/', LetraCreate.as_view(), name='Criarletra'),
+    path('letra/', LetraCreate.as_view(), name='criarletra'),
     path('letras/', LetraList.as_view(), name='lista'),
     path('lista/<int:pk>', lista.as_view(), name='letra'),
 

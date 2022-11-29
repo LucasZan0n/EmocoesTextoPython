@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title>EDITAR USUÁRIO</title>
-=======
-    <title>EDITAR USUáRIO</title>
->>>>>>> 74926ba631c932fc6d9304097de14a82b4d6726d
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -20,13 +16,15 @@
 
 <body class="fundoRegistro" background="/static/img/fundo3.jpg">
 
-<nav class="navbar navbar-expand-sm navbar navbar-dark bg-transparent
+
+    <nav class="navbar navbar-expand-sm navbar navbar-dark bg-transparent
         shadow-lg p-3 mb-4 border border-dark rounde ">
 
         <a class="navbar-brand font-weight-bold text-monospace" href="/letra">TCC</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -41,10 +39,25 @@
                     <a class="nav-link font-weight-bold text-monospace" href="/letras">Minhas Músicas <span
                             class="sr-only">(current)</span></a>
                 </li>
+                
+
 
             </ul>
+
+            <ul>
+                <li class="nav-item active">
+                
+                 <a role="button" href="{% url 'logout' %}" id="botao" class="text-center ml-3 mt-3 mb-3 p-2 text-danger
+            border-light font-weight-bold text-monospace align-left ">Sair<span
+                            class="sr-only">(current)</span></a>
+
+                </li>
+       
+            </ul>
         </div>
- </nav>
+
+            
+    </nav>
     <h2 class="text-center" id="txtRegistro"> E͟d͟i͟t͟a͟r͟ ͟U͟s͟u͟á͟r͟i͟o͟</h2>
 
     <div class="container" id="container">

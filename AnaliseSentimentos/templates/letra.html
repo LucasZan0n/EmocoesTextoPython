@@ -22,6 +22,7 @@
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -36,11 +37,24 @@
                     <a class="nav-link font-weight-bold text-monospace" href="/letras">Minhas Músicas <span
                             class="sr-only">(current)</span></a>
                 </li>
+                
 
+
+            </ul>
+
+            <ul>
+                <li class="nav-item active">
+                
+                 <a role="button" href="{% url 'logout' %}" id="botao" class="text-center ml-3 mt-3 mb-3 p-2 text-danger
+            border-light font-weight-bold text-monospace align-left ">Sair<span
+                            class="sr-only">(current)</span></a>
+
+                </li>
+       
             </ul>
         </div>
 
-
+            
     </nav>
 
     <h2 class="text-center" id="txtLetras">D͟i͟g͟i͟t͟e͟ ͟s͟u͟a͟ ͟L͟e͟t͟r͟a͟ ͟</h2>
@@ -67,7 +81,7 @@
                         {{form.as_p}}
                         {% for letra in object_list %}
 
-                        <div >
+                        <div>
                             <h1>
                                 {{letra}}</h1>
                         </div>

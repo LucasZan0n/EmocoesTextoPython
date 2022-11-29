@@ -3,7 +3,7 @@ import nltk
 nltk.download('punkt')  # Tokenização de textos
 from nltk.stem.snowball import SnowballStemmer
 
-from AnaliseSentimentos.models import Letra, Registro, Login
+from AnaliseSentimentos.models import Letra, Registro
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView 
 from django.shortcuts import redirect
