@@ -10,6 +10,8 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <link rel="stylesheet" href="/static/css/style.css">
+    <title>Meus Dados</title>
+
 
 
 </head>
@@ -51,22 +53,49 @@
 
         <div class="container-fluid flex border border-dark
     shadow-lg p-3 mb-5 bg-white rounded bg
-    p-2 mt-3 mb-3 mx-auto p-2 text-center bg-transparent">
+    mt-3 mb-3 mx-auto text-center bg-transparent">
 
-     {% for letra in object_list %}
-            <div class="list-group">
-       
-                <a class="list-group-item list-group-item-action bg-dark text-white" href="/lista/">{{letra.nomeM}}</a>
+            {% block content %}
+            <div class="table-responsive">
+            <table class="table table-dark table-striped">
 
-            </div>
+            <tr>
+                <th> Nome </th>
+                <th> Email </th>
+                <th> Senha </th>
+                <th> Opções </th>
+            </tr>
+
+            {% for registro in object_list %}
+            
+            <tr>
+                <td> {{ registro.nome }} </td>
+                <td> {{ registro.email }} </td>
+                <td> {{ registro.senha }} </td>
+                
+                    <td> <a href="{% url 'editar-registro' registro.pk %}" class="btn btn-warning btn-sm" title="Editar">E </a>
+                         <a href="{% url 'excluir-registro' registro.pk %}" class="btn btn-danger btn-sm" title="Excluir">X </a>
+                    </td> 
+            </tr>
+
             {% endfor %}
+            
+            {% endblock %}
 
+        </table>
         </div>
+         </div>
 
-        <div>
-            <a role="button" href="/letra/" id="botao" class="btn btn-dark text-center ml-3 mt-3 mb-3 p-2
-        border-light font-weight-bold text-monospace align-middle ">Voltar</a>
-        </div>
+     <div class="container-fluid 
+    shadow-lg p-3 mb-5 bg-transparent rounded
+    p-2 mt-3 mb-3 mx-auto p-2 text-center">
+      <div>
+            <a role="button" href="/letra/" id="botao" class="btn btn-dark text-center ml-3 mt-3 mb-3 block p-2
+        border-light font-weight-bold text-monospace">Voltar</a>
+      </div>
+      </div>
+       
+       
 </body>
 
 </html>
