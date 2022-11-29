@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
-
 from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, RegistroCreate, LetraCreate, LetraList, lista
 
 from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, RegistroCreate, LetraCreate, LetraList, lista
@@ -34,6 +33,7 @@ urlpatterns = [
         template_name='index.html'), name='logout'),
     
     path('registro/', RegistroCreate.as_view(), name='registro'),
+    path('informacoes/', ListarUsuario.as_view(), name='informacoes'),
 
     path('letra/', LetraCreate.as_view(), name='criarletra'),
     path('letras/', LetraList.as_view(), name='lista'),
@@ -45,7 +45,6 @@ urlpatterns = [
 
     path('editar/letra/<int:pk>', AtualizarLetra.as_view(), name='editar-letra'),
     path('excluir/letra/<int:pk>', DeletarLetra.as_view(), name='excluir-letra'),
-    path('informacoes/', ListarUsuario.as_view(), name='informacoes'),
 
 
 ]
