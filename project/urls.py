@@ -15,15 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views
 
-from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, LoginCreate, RegistroCreate, LetraCreate, LetraList, lista
+from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, RegistroCreate, LetraCreate, LetraList, lista
 
 # Definindo as rotas dentro da classe URLS
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', LoginCreate.as_view(), name='index'),
+    path('', auth_views.LoginView.as_view(
+        template_name='index.html'), name='login'),
+
     path('registro/', RegistroCreate.as_view(), name='registro'),
 
     path('letra/', LetraCreate.as_view(), name='Criarletra'),

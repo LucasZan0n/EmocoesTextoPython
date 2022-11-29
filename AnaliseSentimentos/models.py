@@ -13,7 +13,7 @@ class Registro(models.Model):
         return "{} ({}) ({})".format(self.nome, self.email, self.senha, )
 
     def get_absolute_url(self):
-        return reverse('index')
+        return reverse('login')
 
 
 class Login(models.Model):
