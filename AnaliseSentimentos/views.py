@@ -103,3 +103,16 @@ class DeletarLetra(DeleteView):
     model = Letra
     template_name = 'deletarLetra.html'
     success_url = '/letras/'
+
+
+# ========================================
+
+
+class ListarUsuario(ListView):
+    model = Registro
+    template_name: str = 'informacoes.html'
+    queryset = Registro.objects.all().order_by('nome')
+
+    
+# ========================================
+
