@@ -17,7 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
+<<<<<<< HEAD
 from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, RegistroCreate, LetraCreate, LetraList, lista
+=======
+from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, LoginCreate, RegistroCreate, LetraCreate, LetraList, lista
+>>>>>>> 74926ba631c932fc6d9304097de14a82b4d6726d
 
 # Definindo as rotas dentro da classe URLS
 

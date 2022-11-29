@@ -48,6 +48,9 @@ class LetraList(ListView):
     template_name: str = 'minhasLetras.html'
     queryset = Letra.objects.all().order_by('nomeM')
 
+def lista_detail(request, id):
+    lista = lista.objects.filter(id = id)
+    return redirect("lista.html", context ={"lista":lista})
 
 # ========================================
 
