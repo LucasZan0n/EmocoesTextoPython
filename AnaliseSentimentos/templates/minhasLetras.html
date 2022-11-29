@@ -14,7 +14,7 @@
 
 </head>
 
-<body background="../static/img/fundo.jpg">
+<body background="/static/img/fundo.jpg">
 
     <nav class="navbar navbar-expand-sm navbar navbar-dark bg-transparent
         shadow-lg p-3 mb-4 border border-dark rounde ">
@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link font-weight-bold text-monospace" href="/registro">Meus Dados <span
+                    <a class="nav-link font-weight-bold text-monospace" href="/informacoes">Meus Dados <span
                             class="sr-only">(current)</span></a>
                 </li>
 
@@ -50,13 +50,29 @@
 
 
         <div class="container-fluid flex border border-dark
-    shadow-lg p-3 mb-5 bg-white rounded bg
-    p-2 mt-3 mb-3 mx-auto p-2 text-center bg-transparent">
+        shadow-lg p-3 rounded text-danger
+        p-2 mt-3 p-3 text-center ">
 
      {% for letra in object_list %}
             <div class="list-group">
+
+            <div class="table-responsive">
+            <table class="table table-dark table-striped">
        
-                <a class="list-group-item list-group-item-action bg-dark text-white" href="/lista/">{{letra.nomeM}}</a>
+            <tr>
+                <th> Letra </th>
+                <th> Opções </th>
+            </tr>
+
+            <tr>
+                <td> <a class="list-group-item list-group-item-action bg-dark text-white" href="{% url 'letra' letra.pk %}">{{letra.nomeM}} </a></td>
+                
+                    <td>
+                        <a href="{% url 'editar-letra' letra.pk %}" class="btn btn-warning btn-sm" title="Editar">E </a>
+                         <a href="{% url 'excluir-letra' letra.pk %}" class="btn btn-danger btn-sm" title="Excluir">X </a>
+                    </td> 
+           </tr>
+                </table>
 
             </div>
             {% endfor %}

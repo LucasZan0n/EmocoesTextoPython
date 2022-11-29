@@ -56,6 +56,9 @@ class LetraList(ListView):
     template_name: str = 'minhasLetras.html'
     queryset = Letra.objects.all().order_by('nomeM')
 
+def lista_detail(request, id):
+    lista = lista.objects.filter(id = id)
+    return redirect("lista.html", context ={"lista":lista})
 
 # ========================================
 
@@ -64,7 +67,7 @@ class lista(ListView):
     template_name: str = 'lista.html'
     queryset = Letra.objects.order_by('letra')
     sentimento = property('letra')
-
+    
 
 # ========================================
 
@@ -74,6 +77,7 @@ class AtualizarUsuario(UpdateView):
               'email',
               'senha', ]
     template_name: str = 'editarUsuario.html'
+    success_url = '/informacoes/'
 
 
 # ========================================
@@ -81,7 +85,7 @@ class AtualizarUsuario(UpdateView):
 class AtualizarLetra(UpdateView):
     model = Letra
     fields = ['nomeM', 'letra',]
-    template_name: str = 'minhasLetras.html'
+    template_name: str = 'editarLetra.html'
 
     def form_valid(self, form):
         instance = form.save(commit=False)
@@ -99,7 +103,26 @@ class AtualizarLetra(UpdateView):
 
 # ========================================
 
+class DeletarUsuario(DeleteView):
+    model = Registro
+    template_name = 'deletarUsuario.html'
+    success_url = '/'
+
+
+# ========================================
+
+
+
 class DeletarLetra(DeleteView):
     model = Letra
     template_name = 'deletarLetra.html'
     success_url = '/letras/'
+
+    
+# ========================================
+
+
+class ListarUsuario(ListView):
+    model = Registro
+    template_name: str = 'informacoes.html'
+    queryset = Registro.objects.all().order_by('nome')

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DELETAR LETRA</title>
+    <title>EDITAR LETRA</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -40,20 +40,18 @@
 
             </ul>
         </div>
-
-
-    </nav>
-    <h2 class="text-center" id="txtRegistro"> D͟e͟l͟e͟t͟a͟r͟ ͟L͟e͟t͟r͟a͟</h2>
+ </nav>
+    <h2 class="text-center" id="txtRegistro"> E͟͟͟d͟͟͟i͟͟͟t͟͟͟a͟͟͟r͟͟͟ ͟L͟e͟t͟r͟a͟</h2>
 
     <div class="container" id="container">
 
         <div class="container-fluid flex border border-dark
-        shadow-lg p-3 rounded text-danger
+        shadow-lg p-3 rounded text-white 
         p-2 mt-3 p-3 text-center ">
 
 
             <div class="row">
-                <div class="col-p-2 mt-5 mb-3 mx-auto p-2 bg-dark" >
+                <div class="col-p-2 mt-5 mb-3 mx-auto p-2">
 
                     {% block content %}
 
@@ -61,16 +59,12 @@
 
                         <div class="form-group">
 
-                <p> Ao clicar em excluir você removerá <b> permanentemente </b> a letra <b>***{{ letra.nomeM }}***</b>
-                deseja continuar?
-                
-                </p>
                             {% csrf_token %}
 
                             {{form.as_p}}
                         </div>
 
-                        <input type="submit" class="btn btn-danger" value="EXCLUIR">
+                        <input type="submit" class="btn btn-dark" value="Salvar">
 
                 </div>
                 </form>
