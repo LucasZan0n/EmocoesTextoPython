@@ -30,10 +30,10 @@ urlpatterns = [
     path('letras/', LetraList.as_view(), name='minhasLetras'),
     path('lista/', lista.as_view(), name='lista'),
 
-    path('editar/registro/<int:pk>', AtualizarUsuario.as_view(), name='registro'),
-    path('editar/registro/<int:pk>', AtualizarLetra.as_view(), name='letra'),
+    path('editar/registro/<int:pk>', AtualizarUsuario.as_view(), name='editarUsuario'),
+    path('editar/letra/<int:pk>', AtualizarLetra.as_view(), name='letra'),
 
-    path('excluir/registro/<int:pk>', DeletarLetra.as_view(), name='letra'),
+    path('excluir/letra/<int:pk>', DeletarLetra.as_view(), name='letra'),
 
 
 ]

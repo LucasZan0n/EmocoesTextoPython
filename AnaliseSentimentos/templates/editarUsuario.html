@@ -14,8 +14,33 @@
  {% load static %}
 </head>
 
-<body class="fundoRegistro" background="../static/img/fundo3.jpg">
+<body class="fundoRegistro" background="/static/img/fundo3.jpg">
 
+<nav class="navbar navbar-expand-sm navbar navbar-dark bg-transparent
+        shadow-lg p-3 mb-4 border border-dark rounde ">
+
+        <a class="navbar-brand font-weight-bold text-monospace" href="/letra">TCC</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link font-weight-bold text-monospace" href="/registro">Editar Usuario <span
+                            class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link font-weight-bold text-monospace" href="/letras">Minhas Músicas <span
+                            class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+        </div>
+ </nav>
     <h2 class="text-center" id="txtRegistro"> Editar Usuário</h2>
 
     <div class="container" id="container">
@@ -40,7 +65,6 @@
                         </div>
 
                         <input type="submit" class="btn btn-dark" value="Salvar">
-                        <a role="button" href="/" class="btn btn-dark mr-5"> Voltar</a>
 
                 </div>
                 </form>
