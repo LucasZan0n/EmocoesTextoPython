@@ -75,7 +75,6 @@
 
             <tr>
                 <th> Nome </th>
-                <th> Email </th>
                 <th> Senha </th>
                 <th> Opções </th>
             </tr>
@@ -84,7 +83,6 @@
             
             <tr>
                 <td> {{ registro.nome }} </td>
-                <td> {{ registro.email }} </td>
                 <td> {{ registro.senha }} </td>
                 
                     <td> <a href="{% url 'editar-registro' registro.pk %}" class="btn btn-warning btn-sm" title="Editar">E </a>

@@ -6,23 +6,25 @@ nltk.download('punkt')  # Tokenização de textos
 from nltk.stem.snowball import SnowballStemmer
 
 from AnaliseSentimentos.models import Letra, Registro
-from AnaliseSentimentos.forms import RegistroForm
 
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
 
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 
+
 # Telas de Visualização
 
 class RegistroCreate(generic.CreateView):
-    form_class = RegistroForm
+    form_class = UserCreationForm
     template_name = 'registro.html'
     success_url = reverse_lazy('login')
+
 
 # ========================================
 
@@ -88,9 +90,9 @@ class lista(LoginRequiredMixin, ListView):
 
 class AtualizarUsuario(LoginRequiredMixin, UpdateView):
     model = Registro
-    fields = ['nome',
-              'email',
-              'senha', ]
+    fields = ['username',
+              'password1',
+              'password2' ]
     template_name: str = 'editarUsuario.html'
     success_url = '/informacoes/'
     login_url: reverse_lazy('login')
@@ -171,6 +173,6 @@ class DeletarLetra(LoginRequiredMixin, DeleteView):
 class ListarUsuario(LoginRequiredMixin, ListView):
     model = Registro
     template_name: str = 'informacoes.html'
-    queryset = Registro.objects.all().order_by('nome')
+    queryset = Registro.objects.all().order_by('username')
     login_url: reverse_lazy('login')
 

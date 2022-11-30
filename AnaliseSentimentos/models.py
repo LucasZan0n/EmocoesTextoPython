@@ -8,12 +8,13 @@ def user_path(instance, filename):
     return 'usuario_{0}/{1}'.format(instance.usuario.id, filename)
     
 class Registro(models.Model):
-    nome = models.CharField(max_length=150,)
-    email = models.CharField(max_length=100,)
-    senha = models.CharField(max_length=150,)
+    username = models.CharField(max_length=150,)
+    password1 = models.CharField(max_length=150,)
+    password2 = models.CharField(max_length=150,)
+
 
     def __str__(self):
-        return "{} ({}) ({})".format(self.nome, self.email, self.senha, )
+        return "{} ({}) ({})".format(self.username, self.email, self.password1, self.password2)
 
     def get_absolute_url(self):
         return reverse('login')

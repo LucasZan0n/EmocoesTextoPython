@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/static/css/style.css">
 
  {% load static %}
+  {% load crispy_forms_tags %}
+
 </head>
 
 <body class="fundoRegistro" background="/static/img/fundo3.jpg">
@@ -78,7 +80,7 @@
 
                             {% csrf_token %}
 
-                            {{form.as_p}}
+                            {{form|crispy}}
                         </div>
 
                         <input type="submit" class="btn btn-dark" value="Salvar">
