@@ -15,6 +15,7 @@
 </head>
 
 <body class="fundoLogin" background="../static/img/appbar.jpg">
+ {% load crispy_forms_tags %}
 
 
     <h4 for="textarea" id="txtLogin" class="text-center ">L͟o͟g͟i͟n͟</h4>
@@ -26,13 +27,13 @@
 
             {% block content %}
 
-            <form action="" , method="post">
+            <form method="post">
 
                 <div class="form-group  p-2 mt-5 p-3 ">
 
                     {% csrf_token %}
 
-                    {{form.as_p}}
+                            {{form|crispy}}
 
                 </div>
 

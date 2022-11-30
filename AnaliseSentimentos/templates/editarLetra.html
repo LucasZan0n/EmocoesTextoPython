@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="/static/css/style.css">
 
  {% load static %}
+      {% load crispy_forms_tags %}
+
+ 
 </head>
 
 <body class="fundoRegistro" background="/static/img/fundo3.jpg">
@@ -49,29 +52,31 @@
         shadow-lg p-3 rounded text-white 
         p-2 mt-3 p-3 text-center ">
 
+     {% block content %}
+            <form method="post">
 
-            <div class="row">
-                <div class="col-p-2 mt-5 mb-3 mx-auto p-2">
 
-                    {% block content %}
+                <div class="form-group">
 
-                    <form action="" method="POST">
+                    <h4 class="text-monospace" id="nomeM">Nome da Musica</h4>
 
-                        <div class="form-group">
+                    <div>
+                        {% csrf_token %}
 
-                            {% csrf_token %}
+                        {{form|crispy}}
 
-                            {{form.as_p}}
+        
                         </div>
 
                         <input type="submit" class="btn btn-dark" value="Salvar">
 
                 </div>
+               
                 </form>
             </div>
         </div>
     </div>
-    {% endblock %}
+     {% endblock %}
 
     </div>
 </body>

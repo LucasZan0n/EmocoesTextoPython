@@ -9,7 +9,7 @@ from AnaliseSentimentos.models import Letra, Registro
 from AnaliseSentimentos.forms import RegistroForm
 
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import get_object_or_404
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -103,14 +103,8 @@ class AtualizarUsuario(LoginRequiredMixin, UpdateView):
 
 
     def get_object(self, queryset = None):
-        self.object = get_object_or_404 (Registro, pk=self.kwargs['pk'], usuario=self.request.user)
+        self.object = get_object_or_404 (Registro, pk=self.kwargs['pk'])
         return self.object
-
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-
     
     
 # ========================================
@@ -151,10 +145,10 @@ class DeletarUsuario(LoginRequiredMixin, DeleteView):
     success_url = '/'
     login_url: reverse_lazy('login')
 
-
+    
     
     def get_object(self, queryset = None):
-        self.object = get_object_or_404 (Registro, pk=self.kwargs['pk'], usuario=self.request.user)
+        self.object = get_object_or_404 (Registro, pk=self.kwargs['pk'])
         return self.object
 
 
@@ -180,8 +174,3 @@ class ListarUsuario(LoginRequiredMixin, ListView):
     queryset = Registro.objects.all().order_by('nome')
     login_url: reverse_lazy('login')
 
-
-    def form_valid(self, form):
-        form.instance.usuario = self.request.user
-        url = super().form_valid(form)
-        return url

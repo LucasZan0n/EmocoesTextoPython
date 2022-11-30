@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/static/css/style.css">
 
     {% load static %}
+     {% load crispy_forms_tags %}
 </head>
 
 <body background="../static/img/fundo.jpg">
@@ -78,17 +79,8 @@
                     <div>
                         {% csrf_token %}
 
-                        {{form.as_p}}
-                        {% for letra in object_list %}
-
-                        <div>
-                            <h1>
-                                {{letra}}</h1>
-                        </div>
-
-                        {% endfor %}
-
-                        
+                        {{form|crispy}}
+                
                         <div>
                             <button type="submit" class="btn btn-dark text-center ml-3 mt-3 mb-3 block p-2
                         border-light font-weight-bold text-monospace">Enviar</button>
