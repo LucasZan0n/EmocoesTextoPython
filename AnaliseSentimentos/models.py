@@ -2,7 +2,6 @@ from django.urls import reverse
 from django.db import models
 from django.contrib.auth.models import User
 
-
 # CRUD feito com inputs do próprio Django usando a classe MODEL
 
 def user_path(instance, filename):
@@ -10,8 +9,8 @@ def user_path(instance, filename):
     
 class Registro(models.Model):
     nome = models.CharField(max_length=150,)
-    email = models.CharField(max_length=100, verbose_name='Email')
-    senha = models.CharField(max_length=150, verbose_name='Senha')
+    email = models.CharField(max_length=100,)
+    senha = models.CharField(max_length=150,)
 
     def __str__(self):
         return "{} ({}) ({})".format(self.nome, self.email, self.senha, )

@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-
 from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, RegistroCreate, LetraCreate, LetraList, lista
 
 from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, RegistroCreate, LetraCreate, LetraList, lista

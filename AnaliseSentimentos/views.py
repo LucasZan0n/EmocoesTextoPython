@@ -1,28 +1,28 @@
 # from django.shortcuts import render, redirect
 import nltk
+from LeXmo import LeXmo
+
 nltk.download('punkt')  # Tokenização de textos
 from nltk.stem.snowball import SnowballStemmer
 
 from AnaliseSentimentos.models import Letra, Registro
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic.list import ListView 
-from django.shortcuts import redirect
-from LeXmo import LeXmo
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
-from django.contrib.auth.models import User
+from AnaliseSentimentos.forms import RegistroForm
 
+from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404, redirect, render
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
 
 # Telas de Visualização
 
-
-class RegistroCreate(CreateView):
-    model = Registro
-    fields = ['nome',
-              'email',
-              'senha', ]
-    template_name: str = 'registro.html'
-    success_url = '/'
+class RegistroCreate(generic.CreateView):
+    form_class = RegistroForm
+    template_name = 'registro.html'
+    success_url = reverse_lazy('login')
 
 # ========================================
 
@@ -49,6 +49,8 @@ class LetraCreate(LoginRequiredMixin, CreateView):
 
             instance.save()
             return url
+
+
 # ========================================
 
 class LetraList(LoginRequiredMixin,ListView):
@@ -61,6 +63,8 @@ class LetraList(LoginRequiredMixin,ListView):
     def get_queryset(self):
         self.queryset = Letra.objects.filter(usuario=self.request.user)
         return self.queryset
+
+
 # ========================================
 
 class lista(LoginRequiredMixin, ListView):
@@ -73,8 +77,13 @@ class lista(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         self.queryset = Letra.objects.filter(usuario=self.request.user)
-        letra_id = self.kwargs['pk']
         return self.queryset
+
+
+    def get_object(self, queryset = None):
+        self.object = get_object_or_404 (Letra, pk=self.kwargs['pk'], usuario=self.request.user)
+        return self.object
+
 # ========================================
 
 class AtualizarUsuario(LoginRequiredMixin, UpdateView):
@@ -92,6 +101,18 @@ class AtualizarUsuario(LoginRequiredMixin, UpdateView):
         url = super().form_valid(form)
         return url
 
+
+    def get_object(self, queryset = None):
+        self.object = get_object_or_404 (Registro, pk=self.kwargs['pk'], usuario=self.request.user)
+        return self.object
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+    
+    
 # ========================================
 
 class AtualizarLetra(LoginRequiredMixin, UpdateView):
@@ -117,6 +138,11 @@ class AtualizarLetra(LoginRequiredMixin, UpdateView):
             return url
 
 
+    def get_object(self, queryset = None):
+        self.object = get_object_or_404 (Letra, pk=self.kwargs['pk'], usuario=self.request.user)
+        return self.object
+
+
 # ========================================
 
 class DeletarUsuario(LoginRequiredMixin, DeleteView):
@@ -126,10 +152,12 @@ class DeletarUsuario(LoginRequiredMixin, DeleteView):
     login_url: reverse_lazy('login')
 
 
-    def form_valid(self, form):
-        form.instance.usuario = self.request.user
-        url = super().form_valid(form)
-        return url
+    
+    def get_object(self, queryset = None):
+        self.object = get_object_or_404 (Registro, pk=self.kwargs['pk'], usuario=self.request.user)
+        return self.object
+
+
 # ========================================
 
 
@@ -140,10 +168,9 @@ class DeletarLetra(LoginRequiredMixin, DeleteView):
     login_url: reverse_lazy('login')
     
 
-    def form_valid(self, form):
-        form.instance.usuario = self.request.user
-        url = super().form_valid(form)
-        return url
+    def get_object(self, queryset = None):
+        self.object = get_object_or_404 (Letra, pk=self.kwargs['pk'], usuario=self.request.user)
+        return self.object
 # ========================================
 
 
