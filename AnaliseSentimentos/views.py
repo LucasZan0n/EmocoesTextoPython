@@ -24,6 +24,11 @@ class RegistroCreate(generic.CreateView):
     form_class = UserCreationForm
     template_name = 'registro.html'
     success_url = reverse_lazy('login')
+  
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        url = super().form_valid(form)
+        return url
 
 
 # ========================================
@@ -100,6 +105,7 @@ class AtualizarUsuario(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         form.instance.usuario = self.request.user
+        instance = form.save()
         url = super().form_valid(form)
         return url
 
@@ -166,6 +172,10 @@ class DeletarLetra(LoginRequiredMixin, DeleteView):
 class ListarUsuario(LoginRequiredMixin, ListView):
     model = Registro
     template_name: str = 'informacoes.html'
-    queryset = Registro.objects.all().order_by('username')
+    queryset = Registro.objects.order_by('username')
     login_url: reverse_lazy('login')
 
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        url = super().form_valid(form)
+        return url

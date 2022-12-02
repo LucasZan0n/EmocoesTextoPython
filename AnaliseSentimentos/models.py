@@ -8,7 +8,7 @@ def user_path(instance, filename):
     return 'usuario_{0}/{1}'.format(instance.usuario.id, filename)
     
 class Registro(models.Model):
-    username = models.CharField(max_length=150,)
+    username = models.CharField(max_length=150,unique=True)
     password1 = models.CharField(max_length=150,)
     password2 = models.CharField(max_length=150,)
 

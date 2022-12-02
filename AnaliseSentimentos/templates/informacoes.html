@@ -70,6 +70,7 @@
     mt-3 mb-3 mx-auto text-center bg-transparent">
 
             {% block content %}
+
             <div class="table-responsive">
             <table class="table table-dark table-striped">
 
@@ -79,11 +80,12 @@
                 <th> Opções </th>
             </tr>
 
-            {% for registro in object_list %}
-            
+            {% for usuario in object_list %}
+
             <tr>
-                <td> {{ registro.username }} </td>
-                <td> {{ registro.password1 }} </td>
+
+                <td> {{usuario.username}} </td>
+                <td> {{usuario.password1}} </td>
                 
                     <td> <a href="{% url 'editar-registro' registro.pk %}" class="btn btn-warning btn-sm" title="Editar">E </a>
                          <a href="{% url 'excluir-registro' registro.pk %}" class="btn btn-danger btn-sm" title="Excluir">X </a>
