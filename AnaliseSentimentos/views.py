@@ -8,7 +8,7 @@ from nltk.stem.snowball import SnowballStemmer
 from AnaliseSentimentos.models import Letra, Registro
 
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
@@ -141,17 +141,10 @@ class AtualizarLetra(LoginRequiredMixin, UpdateView):
 
 # ========================================
 
-class DeletarUsuario(LoginRequiredMixin, DeleteView):
-    model = Registro
-    template_name = 'deletarUsuario.html'
-    success_url = '/'
-    login_url: reverse_lazy('login')
-
-    
-    
-    def get_object(self, queryset = None):
-        self.object = get_object_or_404 (Registro, pk=self.kwargs['pk'])
-        return self.object
+def DeletarUsuario(request, id):
+    registro = get_object_or_404(Registro, pk=id)
+    registro.delete()
+    return redirect('login')
 
 
 # ========================================
