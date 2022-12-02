@@ -14,7 +14,7 @@ class Registro(models.Model):
 
 
     def __str__(self):
-        return "{} ({}) ({})".format(self.username, self.email, self.password1, self.password2)
+        return "{} ({}) ({})".format(self.username, self.password1, self.password2)
 
     def get_absolute_url(self):
         return reverse('login')
