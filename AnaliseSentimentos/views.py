@@ -149,7 +149,6 @@ class AtualizarLetra(LoginRequiredMixin, UpdateView):
 
 # ========================================
 
-
 class DeletarLetra(LoginRequiredMixin, DeleteView):
     model = Letra
     template_name = 'deletarLetra.html'

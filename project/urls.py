@@ -16,9 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, RegistroCreate, LetraCreate, LetraList, lista
 from AnaliseSentimentos import views
-from AnaliseSentimentos.views import AtualizarLetra, AtualizarUsuario, DeletarLetra, DeletarUsuario, ListarUsuario, RegistroCreate, LetraCreate, LetraList, lista
+from AnaliseSentimentos.views import AtualizarLetra, DeletarLetra, RegistroCreate, LetraCreate, LetraList, lista
 
 # Definindo as rotas dentro da classe URLS
 
@@ -32,14 +31,14 @@ urlpatterns = [
         template_name='index.html'), name='logout'),
     
     path('registro/', RegistroCreate.as_view(), name='registro'),
-    path('informacoes/', ListarUsuario.as_view(), name='informacoes'),
+    # path('informacoes/', ListarUsuario.as_view(), name='informacoes'),
 
     path('letra/', LetraCreate.as_view(), name='criarletra'),
     path('letras/', LetraList.as_view(), name='lista'),
     path('lista/<int:pk>', lista.as_view(), name='letra'),
 
-    path('editar/registro/<int:pk>', AtualizarUsuario.as_view(), name='editar-registro'),
-    path('excluir/registro/<int:pk>', views.DeletarUsuario, name='excluir-registro'),
+    # path('editar/registro/<int:pk>', AtualizarUsuario.as_view(), name='editar-registro'),
+    # path('excluir/registro/<int:pk>', views.DeletarUsuario, name='excluir-registro'),
 
 
     path('editar/letra/<int:pk>', AtualizarLetra.as_view(), name='editar-letra'),
