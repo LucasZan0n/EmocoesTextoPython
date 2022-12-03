@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from AnaliseSentimentos.models import Registro, Letra
+from AnaliseSentimentos.models import Letra
 
 # Register your models here.
-admin.site.register(Registro)
 admin.site.register(Letra)

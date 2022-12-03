@@ -24,11 +24,6 @@ class RegistroCreate(generic.CreateView):
     form_class = UserCreationForm
     template_name = 'registro.html'
     success_url = reverse_lazy('login')
-  
-    def form_valid(self, form):
-        form.instance.usuario = self.request.user
-        url = super().form_valid(form)
-        return url
 
 
 # ========================================
@@ -93,27 +88,26 @@ class lista(LoginRequiredMixin, ListView):
 
 # ========================================
 
-class AtualizarUsuario(LoginRequiredMixin, UpdateView):
-    model = Registro
-    fields = ['username',
-              'password1',
-              'password2' ]
-    template_name: str = 'editarUsuario.html'
-    success_url = '/informacoes/'
-    login_url: reverse_lazy('login')
+# class AtualizarUsuario(LoginRequiredMixin, UpdateView):
+#     model = Registro
+#     fields = ['username',
+#               'password1',
+#               'password2' ]
+#     template_name: str = 'editarUsuario.html'
+#     success_url = '/informacoes/'
+#     login_url: reverse_lazy('login')
 
 
-    def form_valid(self, form):
-        form.instance.usuario = self.request.user
-        instance = form.save()
-        url = super().form_valid(form)
-        return url
+#     def form_valid(self, form):
+#         form.instance.usuario = self.request.user
+#         url = super().form_valid(form)
+#         return url
 
 
-    def get_object(self, queryset = None):
-        self.object = get_object_or_404 (Registro, pk=self.kwargs['pk'])
-        return self.object
-    
+#     def get_object(self, queryset = None):
+#         self.object = get_object_or_404 (Registro, pk=self.kwargs['pk'])
+#         return self.object
+
     
 # ========================================
 
@@ -147,10 +141,10 @@ class AtualizarLetra(LoginRequiredMixin, UpdateView):
 
 # ========================================
 
-def DeletarUsuario(request, id):
-    registro = get_object_or_404(Registro, pk=id)
-    registro.delete()
-    return redirect('login')
+# def DeletarUsuario(request, id):
+#     registro = get_object_or_404(Registro, pk=id)
+#     registro.delete()
+#     return redirect('login')
 
 
 # ========================================
@@ -169,13 +163,9 @@ class DeletarLetra(LoginRequiredMixin, DeleteView):
 # ========================================
 
 
-class ListarUsuario(LoginRequiredMixin, ListView):
-    model = Registro
-    template_name: str = 'informacoes.html'
-    queryset = Registro.objects.order_by('username')
-    login_url: reverse_lazy('login')
+# class ListarUsuario(LoginRequiredMixin, ListView):
+#     model = Registro
+#     template_name: str = 'informacoes.html'
+#     queryset = Registro.objects.all().order_by('username')
+#     login_url: reverse_lazy('login')
 
-    def form_valid(self, form):
-        form.instance.usuario = self.request.user
-        url = super().form_valid(form)
-        return url

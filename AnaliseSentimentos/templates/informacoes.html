@@ -70,30 +70,23 @@
     mt-3 mb-3 mx-auto text-center bg-transparent">
 
             {% block content %}
-
             <div class="table-responsive">
             <table class="table table-dark table-striped">
 
             <tr>
                 <th> Nome </th>
-                <th> Senha </th>
+                <th> Email </th>
                 <th> Opções </th>
             </tr>
 
-            {% for usuario in object_list %}
-
+            {% for user in object_list %}
+            
             <tr>
-<<<<<<< HEAD
-
-                <td> {{usuario.username}} </td>
-                <td> {{usuario.password1}} </td>
-=======
-                <td> {{ registro.username }} </td>
-                <td> {{ registro.password1 }} </td>
->>>>>>> c76a543cc0a4f57ce4b657eaae8d97b0430c64a7
+                <td> {{ user.username }} </td>
+                <td> {{ user.email }} </td>
                 
-                    <td> <a href="{% url 'editar-registro' registro.pk %}" class="btn btn-warning btn-sm" title="Editar">E </a>
-                         <a href="{% url 'excluir-registro' registro.pk %}" class="btn btn-danger btn-sm" title="Excluir">X </a>
+                    <td> <a href="{% url 'editar-usuario' user.pk %}" class="btn btn-warning btn-sm" title="Editar">E </a>
+                         <a href="{% url 'excluir-usuario' user.pk %}" class="btn btn-danger btn-sm" title="Excluir">X </a>
                     </td> 
             </tr>
 
